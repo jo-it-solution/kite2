@@ -1,29 +1,14 @@
-import { useState, useEffect } from 'react';
-import { 
-  TrendingUp, 
-  BrainCircuit, 
-  Database, 
-  Tags, 
-  Building2,
-  ArrowRight
-} from 'lucide-react';
+import { ArrowRight, Database, TrendingUp, BrainCircuit, Building2, CircleDollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/images/logo.png';
+import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Homepage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  const navigate = useNavigate();
   const fadeUpVariant = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
   };
 
   const staggerContainer = {
@@ -35,41 +20,31 @@ export default function Homepage() {
       }
     }
   };
+
+  const techLogos = [
+    { name: "Python",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg",             fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "PyTorch",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg",           fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "TensorFlow",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original-wordmark.svg",     fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "PySpark",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original-wordmark.svg",   fallback: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachespark.svg", w: 224, h: 96, showLabel: true,  showSize: false },
+    { name: "Docker",      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg",             fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "Kubernetes",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain-wordmark.svg",        fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "AWS",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", fallback: "", w: 180, h: 96, showLabel: false, showSize: false },
+    { name: "Git",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg",                   fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "PostgreSQL",  url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg",     fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "dbt",         url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dbt/dbt-original-wordmark.svg",                   fallback: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dbt.svg", w: 140, h: 96, showLabel: false, showSize: false },
+    { name: "Airflow",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original-wordmark.svg", fallback: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheairflow.svg", w: 224, h: 96, showLabel: true,  showSize: false },
+    { name: "Tableau",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tableau/tableau-original-wordmark.svg",           fallback: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tableau.svg", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "Jira",        url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg",                 fallback: "", w: 180, h: 96, showLabel: false, showSize: false },
+    { name: "Slack",       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original-wordmark.svg",               fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+    { name: "Postman",     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg",           fallback: "", w: 224, h: 96, showLabel: false, showSize: false },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
-      {/* HEADER */}
-      <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm py-0' : 'bg-[#17a190] border-transparent py-2'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <div className="flex items-center gap-3 cursor-pointer">
-              {/* Fallback to text if logo.png fails to load */}
-              <div className="flex items-center gap-2">
-                <img src={logo} alt="Kite Consulting Logo" className={`h-12 w-12 object-contain transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`} onError={(e) => e.currentTarget.style.display = 'none'} />
-                <span className={`text-3xl font-medium tracking-tight transition-colors duration-300 ${isScrolled ? 'text-slate-800' : 'text-white'}`}>Kite Consulting</span>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <a href="#Home" className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-600 hover:text-teal-600' : 'text-teal-50 hover:text-white'}`}>Home</a>
-              <a href="#about" className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-600 hover:text-teal-600' : 'text-teal-50 hover:text-white'}`}>About</a>
-              <a href="#projects" className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-600 hover:text-teal-600' : 'text-teal-50 hover:text-white'}`}>Projects</a>
-              <a href="#contact" className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-600 hover:text-teal-600' : 'text-teal-50 hover:text-white'}`}>Contact Us</a>
-            </nav>
-
-            {/* CTA Button */}
-            <div className="hidden md:flex items-center">
-              <button className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 ${isScrolled ? 'bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white shadow-[0_0_15px_rgba(20,184,166,0.5)]' : 'bg-white text-[#17a190] hover:bg-slate-50 shadow-[0_0_15px_rgba(255,255,255,0.3)]'}`}>
-                Request Consultation
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[600px] flex items-center justify-center bg-[#17a190]">
+      <section id="Home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[780px] flex items-center justify-center bg-[#17a190]">
         
         {/* Custom Consulting / Strategy Abstract Background */}
         <div className="absolute inset-0 opacity-60 pointer-events-none flex items-center justify-center overflow-hidden">
@@ -142,11 +117,7 @@ export default function Homepage() {
             </g>
 
             {/* Animated Growth / Trend Curves covering full height/width */}
-            <path d="M-100,650 C300,650 500,400 800,400 C1100,400 1300,200 1800,100" fill="none" stroke="url(#trendGradient)" strokeWidth="6" className="animated-path" />
-            <path d="M-100,200 C300,350 600,200 900,350 C1200,500 1400,150 1800,250" fill="none" stroke="url(#glowGradient)" strokeWidth="4" className="animated-path" style={{ animationDirection: 'reverse', animationDuration: '25s' }} />
-            <path d="M-100,750 C300,800 700,550 1000,700 C1300,850 1500,500 1800,650" fill="none" stroke="#ffffff" strokeWidth="3" opacity="0.3" className="animated-path" style={{ animationDuration: '30s' }} />
-            <path d="M-100,100 C400,-50 800,250 1200,100 C1500,0 1600,300 1800,200" fill="none" stroke="#ffffff" strokeWidth="5" opacity="0.2" className="animated-path" style={{ animationDirection: 'reverse', animationDuration: '35s' }} />
-
+            <path d="M-100,650 C300,650 500,400 800,400 C1100,400 1300,200 1800,100" fill="none" stroke="url(#trendGradient)" strokeWidth="2" className="animated-path" />
             {/* Network / Strategic Connections with Floating Animation */}
             <g stroke="#ffffff" strokeWidth="2.5" fill="none" opacity="0.85">
               
@@ -248,7 +219,7 @@ export default function Homepage() {
             infrastructure capabilities
           </motion.p>
           <motion.div variants={fadeUpVariant}>
-            <button className="group relative inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-[#17a190] px-8 py-3.5 rounded-full font-medium transition-all duration-300 shadow-[0_0_30px_rgba(31,157,149,0.3)] hover:shadow-[0_0_40px_rgba(31,157,149,0.5)] hover:-translate-y-0.5 overflow-hidden">
+            <button onClick={() => navigate('/about')} className="group relative inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-[#17a190] px-8 py-3.5 rounded-full font-medium transition-all duration-300 shadow-[0_0_30px_rgba(31,157,149,0.3)] hover:shadow-[0_0_40px_rgba(31,157,149,0.5)] hover:-translate-y-0.5 overflow-hidden cursor-pointer">
               <span className="relative z-10">About us</span>
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -281,32 +252,46 @@ export default function Homepage() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="py-28 bg-slate-50/50 relative" id="services">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] pointer-events-none mix-blend-multiply"></div>
+      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-white via-slate-50/30 to-white" id="services">
+        {/* Decorative background orbs */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-teal-100/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-100/20 rounded-full blur-[120px] pointer-events-none" />
+
+        {/* Subtle dot pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_0.8px,transparent_0.8px)] [background-size:24px_24px] opacity-[0.2] pointer-events-none" />
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* New Header Area */}
+          {/* Header */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="text-center mb-20 max-w-3xl mx-auto"
+            className="text-center mb-20"
           >
+            <motion.div variants={fadeUpVariant} className="flex items-center justify-center gap-4 mb-7">
+              <span className="h-px w-10 bg-teal-400/60" />
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-teal-600">What We Offer</span>
+              <span className="h-px w-10 bg-teal-400/60" />
+            </motion.div>
             <motion.h2 
               variants={fadeUpVariant}
-              className="text-4xl md:text-5xl font-serif text-slate-900 mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-bold text-slate-900 tracking-tight leading-[1.1]"
             >
-              A variety of services offered
+              A variety of
+              <br className="sm:hidden" />
+              <span className="text-teal-600"> services</span>
             </motion.h2>
             <motion.p 
               variants={fadeUpVariant}
-              className="text-lg text-slate-600 font-light leading-relaxed"
+              className="text-base sm:text-lg text-slate-400 font-light max-w-xl mx-auto leading-relaxed mt-6"
             >
-              extensive and variation of experience by our founding partners makes it so that Kite is your go to for your business consulting needs.
+              Extensive experience by our founding partners makes Kite your go-to for business consulting needs.
             </motion.p>
           </motion.div>
           
+          {/* Service Cards */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -314,57 +299,74 @@ export default function Homepage() {
             variants={staggerContainer}
             className="flex flex-col gap-6"
           >
+            {/* Top Row - 3 cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Service Card 1 */}
-              <motion.div variants={fadeUpVariant} className="group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-teal-500/5 hover:border-teal-500/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-teal-500 transition-colors duration-300">
-                  <TrendingUp className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+              {/* Card 1 - Data & Predictive Analytics */}
+              <motion.div variants={fadeUpVariant} className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 text-center">
+                  <div className="w-14 h-14 bg-teal-50 border border-teal-200/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/25 transition-all duration-300">
+                    <TrendingUp className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 tracking-tight">Data & Predictive Analytics</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">Leverage advanced algorithms to forecast trends and optimize outcomes.</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">Data & Predictive Analytics</h3>
-                <p className="text-slate-500 leading-relaxed font-light">Leverage advanced algorithms to forecast trends and optimize outcomes.</p>
               </motion.div>
 
-              {/* Service Card 2 */}
-              <motion.div variants={fadeUpVariant} className="group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-teal-500/5 hover:border-teal-500/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-teal-500 transition-colors duration-300">
-                  <BrainCircuit className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+              {/* Card 2 - AI & Machine Learning */}
+              <motion.div variants={fadeUpVariant} className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 text-center">
+                  <div className="w-14 h-14 bg-teal-50 border border-teal-200/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/25 transition-all duration-300">
+                    <BrainCircuit className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 tracking-tight">AI, Machine Learning</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">Develop smart systems that learn and adapt from data for automation.</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">AI, Machine Learning</h3>
-                <p className="text-slate-500 leading-relaxed font-light">Develop smart systems that learn and adapt from data for automation.</p>
               </motion.div>
 
-              {/* Service Card 3 */}
-              <motion.div variants={fadeUpVariant} className="group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-teal-500/5 hover:border-teal-500/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-teal-500 transition-colors duration-300">
-                  <Database className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+              {/* Card 3 - Data Engineering */}
+              <motion.div variants={fadeUpVariant} className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 text-center">
+                  <div className="w-14 h-14 bg-teal-50 border border-teal-200/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/25 transition-all duration-300">
+                    <Database className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 tracking-tight">Data Engineering</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">Build and maintain scalable data architecture and storage.</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">Data Engineering</h3>
-                <p className="text-slate-500 leading-relaxed font-light">Build and maintain scalable data architecture and storage.</p>
               </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto w-full">
-              {/* Service Card 4 */}
-              <motion.div variants={fadeUpVariant} className="group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-teal-500/5 hover:border-teal-500/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-teal-500 transition-colors duration-300">
-                  <Tags className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+            {/* Bottom Row - 2 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
+              {/* Card 4 - Enterprise Business Solutions */}
+              <motion.div variants={fadeUpVariant} className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 text-center">
+                  <div className="w-14 h-14 bg-teal-50 border border-teal-200/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/25 transition-all duration-300">
+                    <Building2 className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 tracking-tight">Enterprise Business Solutions</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">Integrated, scalable software systems to streamline operations.</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">Revenue & Pricing Analytics</h3>
-                <p className="text-slate-500 leading-relaxed font-light">Analyze market data to set optimal prices and maximize profit.</p>
               </motion.div>
 
-              {/* Service Card 5 */}
-              <motion.div variants={fadeUpVariant} className="group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-teal-500/5 hover:border-teal-500/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-teal-500 transition-colors duration-300">
-                  <Building2 className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+              {/* Card 5 - Revenue & Pricing Analytics */}
+              <motion.div variants={fadeUpVariant} className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 text-center">
+                  <div className="w-14 h-14 bg-teal-50 border border-teal-200/50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/25 transition-all duration-300">
+                    <CircleDollarSign className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 tracking-tight">Revenue & Pricing Analytics</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">Analyze market data to set optimal prices and maximize profit.</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">Enterprise Business Solutions</h3>
-                <p className="text-slate-500 leading-relaxed font-light">Integrated, scalable software systems to streamline operations.</p>
               </motion.div>
             </div>
           </motion.div>
@@ -372,10 +374,14 @@ export default function Homepage() {
       </section>
 
       {/* TECH STACK SECTION */}
-      <section className="py-24 relative overflow-hidden" id="tech-stack">
-        {/* Decorative background elements */}
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-teal-500/5 blur-[100px] rounded-full pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/30" id="tech-stack">
+        {/* Decorative background orbs */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-50/20 rounded-full blur-[150px] pointer-events-none" />
+
+        {/* Subtle dot pattern overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_0.8px,transparent_0.8px)] [background-size:24px_24px] opacity-[0.25] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
@@ -385,100 +391,109 @@ export default function Homepage() {
             variants={staggerContainer}
             className="text-center mb-16"
           >
+            <motion.div 
+              variants={fadeUpVariant} 
+              className="inline-flex items-center gap-2.5 px-5 py-2 bg-white/80 backdrop-blur-sm border border-teal-200/60 rounded-full text-teal-600 text-[13px] font-medium mb-8 shadow-[0_2px_12px_rgba(20,184,166,0.08)] hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)] hover:border-teal-300/80 transition-all duration-300"
+            >
+              <Database className="w-4 h-4" strokeWidth={1.5} />
+              Technology Stack
+            </motion.div>
             <motion.h2 
               variants={fadeUpVariant}
-              className="text-3xl md:text-4xl font-serif mb-4 text-slate-900 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-5 text-slate-900 tracking-tight leading-[1.15]"
             >
-              Our Technical Stack Capability
+              Powered by<br className="sm:hidden" /> industry leaders
             </motion.h2>
-            <motion.p variants={fadeUpVariant} className="text-slate-500 font-light">
-              Powered by industry-leading technologies and frameworks
+            <motion.p variants={fadeUpVariant} className="text-base sm:text-lg text-slate-400 font-light max-w-xl mx-auto leading-relaxed">
+              We leverage the most advanced technologies and frameworks to deliver enterprise-grade solutions
             </motion.p>
           </motion.div>
-          
+
+          {/* Scrolling Tech Stack Row */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-            className="flex flex-wrap justify-center gap-4 md:gap-6 items-center max-w-5xl mx-auto"
+            variants={fadeUpVariant}
+            className="w-full overflow-hidden relative mt-8"
           >
-            {[
-              "Python", "PostgreSQL", "PyTorch", "TensorFlow", "Docker",
-              "Kubernetes", "Git", "AWS", "Tableau", "Postman",
-              "dbt", "Apache Airflow", "PySpark", "Jira", "Slack"
-            ].map((tech) => (
-              <motion.div 
-                key={tech} 
-                variants={fadeUpVariant}
-                className="px-6 py-3 bg-white border border-slate-100 shadow-sm rounded-full text-slate-600 font-medium hover:text-teal-600 hover:border-teal-100 hover:shadow-md hover:shadow-teal-500/5 transition-all duration-300 cursor-default"
-              >
-                {tech}
-              </motion.div>
-            ))}
+            {/* Gradient overlays for smooth fading edges */}
+            <div className="absolute top-0 bottom-0 left-0 w-24 md:w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 md:w-40 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
+
+            <div className="flex w-max animate-marquee py-8">
+              {/* First set */}
+              <div className="flex items-center px-40" style={{ gap: '24px' }}>
+                {techLogos.map((tech, i) => (
+                  <div key={`a-${i}`} className="group flex-shrink-0 flex flex-col items-center gap-2">
+                    <div className="flex items-center justify-center" style={{ width: tech.w, height: tech.h }}>
+                      <img 
+                        src={tech.url} 
+                        alt={tech.name}
+                        width={tech.w}
+                        height={tech.h}
+                        className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+                        loading="lazy"
+                        crossOrigin="anonymous"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { 
+                          const img = e.currentTarget;
+                          if (tech.fallback && img.src !== tech.fallback) {
+                            img.src = tech.fallback;
+                          } else {
+                            img.style.display = 'none';
+                          }
+                        }}
+                      />
+                    </div>
+                    {tech.showLabel && (
+                      <span className="text-xs font-medium text-slate-400 group-hover:text-slate-600 transition-colors duration-300">{tech.name}</span>
+                    )}
+                    {tech.showSize && (
+                      <span className="text-[10px] font-mono text-slate-300 group-hover:text-slate-400 transition-colors duration-300">{tech.w}×{tech.h}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="flex items-center px-40" style={{ gap: '24px' }}>
+                {techLogos.map((tech, i) => (
+                  <div key={`b-${i}`} className="group flex-shrink-0 flex flex-col items-center gap-2">
+                    <div className="flex items-center justify-center" style={{ width: tech.w, height: tech.h }}>
+                      <img 
+                        src={tech.url} 
+                        alt={tech.name}
+                        width={tech.w}
+                        height={tech.h}
+                        className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+                        loading="lazy"
+                        crossOrigin="anonymous"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { 
+                          const img = e.currentTarget;
+                          if (tech.fallback && img.src !== tech.fallback) {
+                            img.src = tech.fallback;
+                          } else {
+                            img.style.display = 'none';
+                          }
+                        }}
+                      />
+                    </div>
+                    {tech.showLabel && (
+                      <span className="text-xs font-medium text-slate-400 group-hover:text-slate-600 transition-colors duration-300">{tech.name}</span>
+                    )}
+                    {tech.showSize && (
+                      <span className="text-[10px] font-mono text-slate-300 group-hover:text-slate-400 transition-colors duration-300">{tech.w}×{tech.h}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#1a1f24] text-slate-300 pt-16 pb-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
-            {/* Footer Left */}
-            <div className="flex flex-col items-center md:items-start gap-4">
-              <div className="flex items-center gap-3">
-                <img src={logo} alt="Kite LLC Logo" className="h-10 w-10 brightness-0 invert opacity-90" onError={(e) => e.currentTarget.style.display = 'none'} />
-                <div>
-                  <h3 className="text-2xl font-semibold text-white tracking-wide">kiteLLC</h3>
-                  <p className="text-sm text-slate-400 mt-1">Innovate. Connect. Secure.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 mt-2">
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Footer Right */}
-            <div className="flex gap-6 text-sm font-medium">
-              <a href="#about" className="hover:text-white transition-colors">About</a>
-              <span className="text-slate-600">|</span>
-              <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-              <span className="text-slate-600">|</span>
-              <a href="#contact" className="hover:text-white transition-colors">Contact Us</a>
-            </div>
-          </div>
-
-          {/* Glow Line & Bottom Bar */}
-          <div className="relative pt-6 mt-8">
-            {/* Glow effect */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-teal-500/50 to-transparent"></div>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-teal-400 shadow-[0_0_8px_rgba(45,212,191,0.8)]"></div>
-            
-            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-              <p>© 2024 kiteLLC. All rights reserved.</p>
-              <div className="flex gap-3 mt-4 md:mt-0">
-                <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
-                <span>|</span>
-                <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

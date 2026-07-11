@@ -7,7 +7,7 @@ import {
   Clock,
   Send,
   MessageSquare,
-  ChevronRight
+  
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';

@@ -7,10 +7,8 @@ import {
   Database,
   Truck,
   Target,
-  RefreshCw,
-  BarChart3,
+  
   ClipboardCheck,
-  Lightbulb,
   Globe
 } from 'lucide-react';
 import Header from '../components/Header';

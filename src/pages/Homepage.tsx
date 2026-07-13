@@ -226,28 +226,57 @@ export default function Homepage() {
           </motion.div>
         </motion.div>
 
-        {/* Custom Wave Shape Divider */}
+        {/* Custom Wave Shape Divider - Premium Design */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none transform translate-y-[1px]">
           <svg className="relative block w-full h-[60px] md:h-[120px] lg:h-[160px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
             <defs>
-              <style>
-                {`
-                  @keyframes wave1 {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                  }
-                  @keyframes wave2 {
-                    0% { transform: translateX(-50%); }
-                    100% { transform: translateX(0); }
-                  }
-                `}
-              </style>
+              <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#d1fae5" stopOpacity="0.25" />
+                <stop offset="35%" stopColor="#ccf0ee" stopOpacity="0.4" />
+                <stop offset="70%" stopColor="#a7f3d0" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+              </linearGradient>
+              <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#99e6dd" stopOpacity="0.15" />
+                <stop offset="40%" stopColor="#a7f3d0" stopOpacity="0.35" />
+                <stop offset="75%" stopColor="#d1fae5" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+              </linearGradient>
+              <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#a7f3d0" stopOpacity="0.2" />
+                <stop offset="45%" stopColor="#b3f5e8" stopOpacity="0.4" />
+                <stop offset="80%" stopColor="#c7f0d8" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+              </linearGradient>
+              <linearGradient id="waveGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#f0fdfa" stopOpacity="0.6" />
+                <stop offset="50%" stopColor="#f0fdfa" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+              </linearGradient>
+              <filter id="waveShadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+                <feOffset dx="0" dy="1" result="offsetblur" />
+                <feComponentTransfer>
+                  <feFuncA type="linear" slope="0.08"/>
+                </feComponentTransfer>
+                <feMerge>
+                  <feMergeNode/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
             
-            <path fill="#f8fafc" fillOpacity="0.3" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,165.3C672,171,768,149,864,128C960,107,1056,85,1152,90.7C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            <path fill="#f8fafc" fillOpacity="0.5" d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,197.3C672,213,768,235,864,229.3C960,224,1056,192,1152,186.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            <path fill="#f8fafc" fillOpacity="0.7" d="M0,96L48,106.7C96,117,192,139,288,160C384,181,480,203,576,197.3C672,192,768,160,864,149.3C960,139,1056,149,1152,160C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            <path fill="#ffffff" fillOpacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,160C672,171,768,213,864,218.7C960,224,1056,192,1152,170.7C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            {/* Layer 1 - Subtle light teal */}
+            <path fill="url(#waveGrad1)" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,165.3C672,171,768,149,864,128C960,107,1056,85,1152,90.7C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            
+            {/* Layer 2 - Mid-tone emerald */}
+            <path fill="url(#waveGrad2)" d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,197.3C672,213,768,235,864,229.3C960,224,1056,192,1152,186.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            
+            {/* Layer 3 - Accent teal depth */}
+            <path fill="url(#waveGrad3)" d="M0,96L48,106.7C96,117,192,139,288,160C384,181,480,203,576,197.3C672,192,768,160,864,149.3C960,139,1056,149,1152,160C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            
+            {/* Layer 4 - Crisp white transition */}
+            <path fill="url(#waveGrad4)" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,160C672,171,768,213,864,218.7C960,224,1056,192,1152,170.7C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
         </div>
       </section>

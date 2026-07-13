@@ -16,6 +16,10 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    
+    // Check initial scroll position
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,8 +55,9 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm py-0' : 'bg-[#17a190] border-transparent py-2'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <header className={`fixed w-full top-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm py-0' : 'bg-[#17a190] border-transparent py-2'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo (click to go to Home) */}
           <Link to="/" className="flex items-center gap-3 cursor-pointer">
@@ -151,6 +156,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      </header>
 
       {/* Consultation Modal */}
       {isModalOpen && (
@@ -274,6 +280,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

@@ -44,7 +44,7 @@ export default function Homepage() {
       <Header />
 
       {/* HERO SECTION */}
-      <section id="Home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[780px] flex items-center justify-center bg-[#17a190]">
+      <section id="Home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[730px] flex items-center justify-center bg-[#17a190]">
         
         {/* Custom Consulting / Strategy Abstract Background */}
         <div className="absolute inset-0 opacity-60 pointer-events-none flex items-center justify-center overflow-hidden">

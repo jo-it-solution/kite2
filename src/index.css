@@ -7,6 +7,10 @@
   --font-serif: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+html {
+  font-size: 16px !important;
+}
+
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

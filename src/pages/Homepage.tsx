@@ -435,7 +435,7 @@ export default function Homepage() {
               Powered by<br className="sm:hidden" /> industry leaders
             </motion.h2>
             <motion.p variants={fadeUpVariant} className="text-base sm:text-lg text-slate-400 font-light max-w-xl mx-auto leading-relaxed">
-              We leverage the most advanced technologies and frameworks to deliver enterprise-grade solutions
+              We leverage cutting-edge technologies and frameworks to deliver enterprise-grade solutions
             </motion.p>
           </motion.div>
 

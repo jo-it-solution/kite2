@@ -78,7 +78,7 @@ export default function Projects() {
                 <span className="h-px w-10 bg-teal-400/60" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Strategic <span className="text-teal-600">Engagements</span>
+                Sample Strategic <span className="text-teal-600">Engagements</span>
               </h2>
             </motion.div>
 
@@ -89,12 +89,12 @@ export default function Projects() {
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10">
+                  <h3 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">eCommerce Sector</h3>
                   {/* Partner Badge */}
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-200/50 rounded-full text-teal-700 text-xs font-medium mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-200/50 rounded-full text-teal-700 text-xs font-medium mb-8">
                     <ShoppingCart className="w-3.5 h-3.5" strokeWidth={1.5} />
                     Partnering with MKS
                   </div>
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-8 tracking-tight">eCommerce Sector</h3>
 
                   {/* CoMee */}
                   <div className="bg-slate-50 rounded-2xl p-6 mb-6 border border-slate-100">
@@ -126,11 +126,11 @@ export default function Projects() {
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-400 to-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-200/50 rounded-full text-indigo-700 text-xs font-medium mb-6">
+                  <h3 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Banking Sector</h3>
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-200/50 rounded-full text-indigo-700 text-xs font-medium mb-8">
                     <Landmark className="w-3.5 h-3.5" strokeWidth={1.5} />
                     Partnering with BITS
                   </div>
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-8 tracking-tight">Banking Sector</h3>
 
                   <div className="space-y-5">
                     {/* Training */}
@@ -193,6 +193,10 @@ export default function Projects() {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-50/0 via-transparent to-transparent group-hover:from-amber-50/30 transition-colors duration-500" />
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-50 border border-amber-200/50 rounded-full text-amber-700 text-xs font-medium mb-8">
+                    <Database className="w-3.5 h-3.5" strokeWidth={1.5} />
+                    Partnering with MKS
+                  </div>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-12 h-12 bg-amber-50 border border-amber-200/50 rounded-full flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 group-hover:shadow-lg transition-all duration-300">
                       <Database className="w-6 h-6 text-amber-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />

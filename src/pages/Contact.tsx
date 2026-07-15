@@ -51,8 +51,8 @@ export default function Contact() {
       title: "Email",
       color: "amber",
       lines: [
-        "support@kitellic.net",
-        "info@kitellic.net"
+        // "support@kitellic.net",
+        // "info@kitellic.net"
       ]
     },
     {
@@ -177,7 +177,7 @@ export default function Contact() {
               {/* Map */}
               <motion.div variants={fadeUpVariant} className="lg:col-span-3 group relative bg-white rounded-2xl border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden h-[420px] lg:h-full min-h-[360px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.5210784391193!2d55.41850600000001!3d25.3540525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5be30e9c8aad%3A0x32d415021d2fe7d7!2sShams%20Business%20Center!5e0!3m2!1sen!2sus!4v1712345678901!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.0371302830236!2d55.67787267595511!3d25.278850628773787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef592bd2d5ebbfb%3A0x264906f3dc8e49d6!2sShams%20Business%20Center!5e0!3m2!1sen!2sae!4v1715000000000!5m2!1sen!2sae"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -201,7 +201,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900">Send a Message</h3>
-                    <p className="text-xs text-slate-400">We'll get back within 24 hours</p>
+                    <p className="text-xs text-slate-400">We'll get back within 72 hours</p>
                   </div>
                 </div>
 
@@ -290,7 +290,7 @@ export default function Contact() {
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-3">Quick Response</h3>
               <p className="text-sm text-slate-500 font-light">We typically respond to inquiries</p>
-              <p className="text-sm font-semibold text-slate-700">within 24 business hours</p>
+              <p className="text-sm font-semibold text-slate-700">within 72 business hours</p>
               <p className="text-xs text-slate-400 mt-3 font-light">For urgent matters, please call us directly</p>
             </motion.div>
 
@@ -301,7 +301,7 @@ export default function Contact() {
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-3">Global Reach</h3>
               <p className="text-sm text-slate-500 font-light">Serving clients across</p>
-              <p className="text-sm font-semibold text-slate-700">UAE, Ethiopia, Canada & USA</p>
+              <p className="text-sm font-semibold text-slate-700">Ethiopia, UAE, Germany</p>
               <p className="text-xs text-slate-400 mt-3 font-light">Remote consulting available worldwide</p>
             </motion.div>
           </motion.div>

@@ -8,15 +8,13 @@
 }
 
 html {
-  font-size: 16px !important;
+  zoom: 90%;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 @layer utilities {

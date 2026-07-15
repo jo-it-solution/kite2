@@ -20,7 +20,7 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import imgHana from '../assets/images/Hana.png';
-import imgTehut from '../assets/images/Tehut.png';
+// import imgTehut from '../assets/images/Tehut.png';
 import imgTibebu from '../assets/images/Tibebu.png';
 import imgElshadyai from '../assets/images/Elshadyai.png';
 
@@ -51,6 +51,7 @@ export default function About() {
       text: "text-teal-600",
       image: imgHana
     },
+    /*
     {
       name: "Ms. Tehut Tesfaye",
       role: "Business Analytics & Pricing Strategy",
@@ -63,6 +64,7 @@ export default function About() {
       text: "text-indigo-600",
       image: imgTehut
     },
+    */
     {
       name: "Mr. Tibebu Tesfaye",
       role: "AI, Machine Learning & Data Engineering",
@@ -262,7 +264,7 @@ export default function About() {
             </motion.div>
 
             {/* Partners Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
               {partners.map((partner, index) => {
                 const ringColor = partner.color === 'teal' ? 'group-hover:ring-teal-500' : partner.color === 'indigo' ? 'group-hover:ring-indigo-500' : partner.color === 'amber' ? 'group-hover:ring-amber-500' : 'group-hover:ring-purple-500';
                 const hoverBg = partner.color === 'teal' ? 'group-hover:from-teal-50/40 group-hover:to-teal-50/10' : partner.color === 'indigo' ? 'group-hover:from-indigo-50/40 group-hover:to-indigo-50/10' : partner.color === 'amber' ? 'group-hover:from-amber-50/40 group-hover:to-amber-50/10' : 'group-hover:from-purple-50/40 group-hover:to-purple-50/10';

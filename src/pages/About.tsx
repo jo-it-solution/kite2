@@ -301,7 +301,7 @@ export default function About() {
                 {/* Mentor */}
                 <div className="group flex flex-col items-center text-center px-6 py-6 md:py-0">
                   <div className="h-20 mb-5 px-4 rounded-xl group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300 flex items-center justify-center">
-                    <img src={imgMentor} alt="Mentor Knowledge Solutions" className="h-full w-auto max-w-[200px] object-contain" />
+                    <img src={imgMentor} alt="Mentor Knowledge Solutions" className="max-h-full w-auto max-w-[200px] object-contain" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-2">Mentor Knowledge Solutions</h4>
                   <p className="text-sm text-slate-500 font-light leading-relaxed">IT & Management Consulting Firm based in Addis Ababa</p>
@@ -310,7 +310,7 @@ export default function About() {
                 {/* BITS College */}
                 <div className="group flex flex-col items-center text-center px-6 py-6 md:py-0">
                   <div className="h-20 mb-5 px-4 rounded-xl group-hover:shadow-lg group-hover:shadow-indigo-500/20 transition-all duration-300 flex items-center justify-center">
-                    <img src={imgBits} alt="BITS College" className="h-full w-auto max-w-[200px] object-contain" />
+                    <img src={imgBits} alt="BITS College" className="max-h-full w-auto max-w-[200px] object-contain" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-2">BITS College</h4>
                   <p className="text-sm text-slate-500 font-light leading-relaxed">Higher Learning Institution Operating in Developing Technical Skills</p>
@@ -318,8 +318,8 @@ export default function About() {
 
                 {/* NovaCon */}
                 <div className="group flex flex-col items-center text-center px-6 py-6 md:py-0">
-                  <div className="h-24  px-4 rounded-xl group-hover:shadow-lg group-hover:shadow-amber-500/20 transition-all duration-300 flex items-center justify-center">
-                    <img src={imgNovaCon} alt="NovaCon" className="h-full w-auto max-w-[240px] object-contain scale-[1.2]" />
+                  <div className="h-20 mb-5 px-4 rounded-xl group-hover:shadow-lg group-hover:shadow-amber-500/20 transition-all duration-300 flex items-center justify-center">
+                    <img src={imgNovaCon} alt="NovaCon" className="max-h-full w-auto max-w-[200px] object-contain" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-2">NovaCon</h4>
                   <p className="text-sm text-slate-500 font-light leading-relaxed">Sister Company in development based in Addis Ababa</p>

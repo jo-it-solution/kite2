@@ -417,9 +417,9 @@ export default function About() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { icon: Network, label: "Infrastructure", color: "teal" },
-                      { icon: Building2, label: "Enterprise", color: "indigo" },
-                      { icon: Database, label: "Data & AI", color: "amber" },
-                      { icon: LineChart, label: "Revenue Strategy", color: "purple" },
+                      { icon: Building2, label: "Enterprise", color: "teal" },
+                      { icon: Database, label: "Data & AI", color: "teal" },
+                      { icon: LineChart, label: "Revenue Strategy", color: "teal" },
                     ].map((item, idx) => {
                       const Icon = item.icon;
                       const colorMap = {

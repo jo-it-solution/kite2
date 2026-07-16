@@ -19,10 +19,7 @@ import {
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import imgHana from "../assets/images/Hana.png";
 // import imgTehut from '../assets/images/Tehut.png';
-import imgTibebu from "../assets/images/Tibebu.png";
-import imgElshadyai from "../assets/images/Elshadyai.png";
 
 export default function About() {
   const fadeUpVariant = {
@@ -53,7 +50,7 @@ export default function About() {
       shadow: "group-hover:shadow-teal-500/15",
       glow: "shadow-teal-500/25",
       text: "text-teal-600",
-      image: imgHana,
+      initials: "HG",
     },
     /*
     {
@@ -79,7 +76,7 @@ export default function About() {
       shadow: "group-hover:shadow-amber-500/15",
       glow: "shadow-amber-500/25",
       text: "text-amber-600",
-      image: imgTibebu,
+      initials: "TT",
     },
     {
       name: "Ms. Elshadai Tesfaye",
@@ -91,7 +88,7 @@ export default function About() {
       shadow: "group-hover:shadow-purple-500/15",
       glow: "shadow-purple-500/25",
       text: "text-purple-600",
-      image: imgElshadyai,
+      initials: "ET",
     },
   ];
 
@@ -462,16 +459,14 @@ export default function About() {
                       className={`absolute inset-0 bg-gradient-to-b from-transparent to-transparent ${hoverBg} transition-all duration-500`}
                     />
                     <div className="relative z-10">
-                      {/* Avatar with colored ring */}
+                      {/* Initials avatar with colored ring */}
                       <div className="mb-6">
                         <div
-                          className={`w-36 h-36 mx-auto rounded-full ring-4 ring-slate-100 ${ringColor} group-hover:ring-offset-4 group-hover:ring-offset-white ring-offset-0 shadow-lg ${partner.glow} transition-all duration-500 overflow-hidden`}
+                          className={`w-36 h-36 mx-auto rounded-full ring-4 ring-slate-100 ${ringColor} group-hover:ring-offset-4 group-hover:ring-offset-white ring-offset-0 shadow-lg ${partner.glow} transition-all duration-500 overflow-hidden flex items-center justify-center bg-slate-50`}
                         >
-                          <img
-                            src={partner.image}
-                            alt={partner.name}
-                            className="w-full h-full object-cover"
-                          />
+                          <span className="text-3xl font-semibold tracking-[0.2em] text-slate-700">
+                            {partner.initials}
+                          </span>
                         </div>
                       </div>
                       {/* Name with colored accent dot */}

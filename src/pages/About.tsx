@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import imgMentor from "../assets/images/Mentor.png";
 import imgBits from "../assets/images/Bits.png";
 import imgNovaCon from "../assets/images/NovaCon.png";
+import imgOurTeam from "../assets/images/ourteam.png";
 import {
   Building2,
   MapPin,
@@ -39,58 +40,7 @@ export default function About() {
     },
   };
 
-  const partners = [
-    {
-      name: "Ms. Hana Gebeyehu",
-      role: "Digital Public Infrastructure & Enterprise Business Solutions",
-      color: "teal",
-      gradient: "from-teal-500 to-emerald-500",
-      ring: "ring-teal-400",
-      ringHover: "group-hover:ring-teal-500",
-      shadow: "group-hover:shadow-teal-500/15",
-      glow: "shadow-teal-500/25",
-      text: "text-teal-600",
-      initials: "HG",
-    },
-    /*
-    {
-      name: "Ms. Tehut Tesfaye",
-      role: "Business Analytics & Pricing Strategy",
-      color: "indigo",
-      gradient: "from-indigo-500 to-violet-500",
-      ring: "ring-indigo-400",
-      ringHover: "group-hover:ring-indigo-500",
-      shadow: "group-hover:shadow-indigo-500/15",
-      glow: "shadow-indigo-500/25",
-      text: "text-indigo-600",
-      image: imgTehut
-    },
-    */
-    {
-      name: "Mr. Tibebu Tesfaye",
-      role: "AI, Machine Learning & Data Engineering",
-      color: "amber",
-      gradient: "from-amber-500 to-orange-500",
-      ring: "ring-amber-400",
-      ringHover: "group-hover:ring-amber-500",
-      shadow: "group-hover:shadow-amber-500/15",
-      glow: "shadow-amber-500/25",
-      text: "text-amber-600",
-      initials: "TT",
-    },
-    {
-      name: "Ms. Elshadai Tesfaye",
-      role: "Software Engineering & Human Operations",
-      color: "purple",
-      gradient: "from-purple-500 to-pink-500",
-      ring: "ring-purple-400",
-      ringHover: "group-hover:ring-purple-500",
-      shadow: "group-hover:shadow-purple-500/15",
-      glow: "shadow-purple-500/25",
-      text: "text-purple-600",
-      initials: "ET",
-    },
-  ];
+
 
   const pillars = [
     {
@@ -419,73 +369,105 @@ export default function About() {
                 <span className="h-px w-10 bg-teal-400/60" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 tracking-tight leading-[1.15]">
-                Founding Partners
-                <br className="sm:hidden" />{" "}
-                <span className="text-teal-600">& Specializations</span>
+                Expertise & <br className="sm:hidden" />{" "}
+                <span className="text-teal-600">Specializations</span>
               </h2>
             </motion.div>
 
-            {/* Partners Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
-              {partners.map((partner, index) => {
-                const ringColor =
-                  partner.color === "teal"
-                    ? "group-hover:ring-teal-500"
-                    : partner.color === "indigo"
-                      ? "group-hover:ring-indigo-500"
-                      : partner.color === "amber"
-                        ? "group-hover:ring-amber-500"
-                        : "group-hover:ring-purple-500";
-                const hoverBg =
-                  partner.color === "teal"
-                    ? "group-hover:from-teal-50/40 group-hover:to-teal-50/10"
-                    : partner.color === "indigo"
-                      ? "group-hover:from-indigo-50/40 group-hover:to-indigo-50/10"
-                      : partner.color === "amber"
-                        ? "group-hover:from-amber-50/40 group-hover:to-amber-50/10"
-                        : "group-hover:from-purple-50/40 group-hover:to-purple-50/10";
-                return (
-                  <motion.div
-                    key={index}
-                    variants={fadeUpVariant}
-                    className={`group relative bg-white rounded-2xl p-8 pb-10 text-center border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-500 overflow-hidden`}
-                  >
-                    {/* Top gradient bar */}
-                    <div
-                      className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${partner.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                    />
-                    {/* Subtle bg gradient on hover */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-b from-transparent to-transparent ${hoverBg} transition-all duration-500`}
-                    />
-                    <div className="relative z-10">
-                      {/* Initials avatar with colored ring */}
-                      <div className="mb-6">
-                        <div
-                          className={`w-36 h-36 mx-auto rounded-full ring-4 ring-slate-100 ${ringColor} group-hover:ring-offset-4 group-hover:ring-offset-white ring-offset-0 shadow-lg ${partner.glow} transition-all duration-500 overflow-hidden flex items-center justify-center bg-slate-50`}
-                        >
-                          <span className="text-3xl font-semibold tracking-[0.2em] text-slate-700">
-                            {partner.initials}
+            {/* Team Expertise - Premium UI */}
+            <div className="mb-32 max-w-7xl mx-auto relative">
+              {/* Soft Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full max-h-[600px] bg-gradient-to-r from-teal-200/20 via-indigo-100/20 to-purple-200/20 rounded-[3rem] blur-3xl -z-10" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center bg-white/90 backdrop-blur-2xl rounded-[3rem] p-8 md:p-12 lg:p-16 shadow-[0_8px_40px_rgb(0,0,0,0.04)] border border-white relative overflow-hidden">
+                {/* Subtle internal gradient & tech grid pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-teal-50/30 pointer-events-none" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_20%,transparent_100%)] opacity-50 pointer-events-none" />
+
+                {/* Left Content */}
+                <motion.div
+                  variants={fadeUpVariant}
+                  className="relative z-10 space-y-10"
+                >
+                  <div className="space-y-6">
+                    {/* Animated Pulse Badge */}
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50/80 backdrop-blur-sm border border-teal-100/50 text-teal-700 text-sm font-semibold tracking-wide mb-2 shadow-sm">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                      </span>
+                      Core Competencies
+                    </div>
+                    
+                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
+                      Our team brings nearly a decade of focused expertise
+                      building digital public infrastructure, enterprise business
+                      solutions, software engineering, and human operations
+                      frameworks.
+                    </p>
+                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
+                      Alongside these systems, we drive growth through specialized
+                      capabilities in AI, machine learning, data engineering,
+                      revenue management, product strategy, data analytics, and
+                      business intelligence.
+                    </p>
+                  </div>
+
+                  {/* Expertise Tags Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { icon: Network, label: "Infrastructure", color: "teal" },
+                      { icon: Building2, label: "Enterprise", color: "indigo" },
+                      { icon: Database, label: "Data & AI", color: "amber" },
+                      { icon: LineChart, label: "Revenue Strategy", color: "purple" },
+                    ].map((item, idx) => {
+                      const Icon = item.icon;
+                      const colorMap = {
+                        teal: "bg-teal-50 text-teal-600 group-hover:bg-teal-500",
+                        indigo: "bg-indigo-50 text-indigo-600 group-hover:bg-indigo-500",
+                        amber: "bg-amber-50 text-amber-600 group-hover:bg-amber-500",
+                        purple: "bg-purple-50 text-purple-600 group-hover:bg-purple-500",
+                      };
+                      return (
+                        <div key={idx} className="group flex items-center gap-4 p-4 rounded-2xl bg-white/60 hover:bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-300 cursor-default">
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${colorMap[item.color as keyof typeof colorMap]}`}>
+                            <Icon className="w-5 h-5 group-hover:text-white transition-colors duration-300" />
+                          </div>
+                          <span className="font-medium text-slate-800">
+                            {item.label}
                           </span>
                         </div>
-                      </div>
-                      {/* Name with colored accent dot */}
-                      <div className="mb-3">
-                        <span
-                          className={`inline-block w-2 h-2 rounded-full bg-gradient-to-r ${partner.gradient} mr-2 align-middle mb-0.5`}
-                        />
-                        <h3 className="inline text-lg font-bold text-slate-900 tracking-tight">
-                          {partner.name}
-                        </h3>
-                      </div>
-                      {/* Role */}
-                      <p className="text-sm leading-relaxed font-light text-slate-400 group-hover:text-slate-500 transition-colors duration-500">
-                        {partner.role}
-                      </p>
-                    </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+
+                {/* Right Image */}
+                <motion.div
+                  variants={fadeUpVariant}
+                  className="relative z-10 flex items-center justify-center h-full min-h-[350px] lg:min-h-[450px]"
+                >
+                  {/* Glowing aura behind image */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-teal-200/30 via-transparent to-indigo-200/30 rounded-full blur-[60px] -z-10" />
+                  
+                  {/* Floating Image Animation */}
+                  <motion.div
+                    animate={{ y: [-15, 15, -15] }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="relative w-full flex justify-center"
+                  >
+                    <img
+                      src={imgOurTeam}
+                      alt="Our Team"
+                      className="w-full max-w-md lg:max-w-lg object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)]"
+                    />
                   </motion.div>
-                );
-              })}
+                </motion.div>
+              </div>
             </div>
 
             {/* Associates */}

@@ -215,8 +215,9 @@ export default function Homepage() {
             variants={fadeUpVariant}
             className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed"
           >
-            through deep understanding of context, stakeholder needs and<br className="hidden md:block" />
-            infrastructure capabilities
+            through deep understanding of context, stakeholder needs{" "}
+            <br className="hidden md:block" />
+            and infrastructure capabilities
           </motion.p>
           <motion.div variants={fadeUpVariant}>
             <button onClick={() => navigate('/about')} className="group relative inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-[#17a190] px-8 py-3.5 rounded-full font-medium transition-all duration-300 shadow-[0_0_30px_rgba(31,157,149,0.3)] hover:shadow-[0_0_40px_rgba(31,157,149,0.5)] hover:-translate-y-0.5 overflow-hidden cursor-pointer">

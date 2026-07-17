@@ -38,6 +38,7 @@ export default function About() {
       opacity: 1,
       transition: { staggerChildren: 0.12 },
     },
+    
   };
 
 

@@ -7,12 +7,14 @@ import {
   Database,
   Truck,
   Target,
-  
   ClipboardCheck,
-  Globe
+  Globe,
+  Handshake
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import imgMentor from '../assets/images/Mentor.png';
+import imgBits from '../assets/images/Bits.png';
 
 export default function Projects() {
   const fadeUpVariant = {
@@ -49,10 +51,12 @@ export default function Projects() {
           >
             Project Spotlight
           </motion.h1>
-          <motion.div variants={fadeUpVariant} className="flex flex-wrap justify-center gap-4 md:gap-8 text-teal-50/90 text-sm font-medium">
-            <span className="px-4 py-1.5 bg-white/10 rounded-full backdrop-blur-sm">MKS — Mentor Knowledge Solutions</span>
-            <span className="px-4 py-1.5 bg-white/10 rounded-full backdrop-blur-sm">BITS — Higher Learning Institution</span>
-          </motion.div>
+          <motion.p
+            variants={fadeUpVariant}
+            className="text-lg md:text-xl text-teal-50/90 max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            Highlighting our key strategic engagements and operational capabilities
+          </motion.p>
         </motion.div>
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none translate-y-[1px]">
           <svg className="relative block w-full h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -71,7 +75,62 @@ export default function Projects() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeUpVariant} className="text-center mb-20">
+            {/* KEY PARTNERS SECTION - MOVED TO TOP */}
+            <motion.div variants={fadeUpVariant} className="mb-24">
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-4 mb-7">
+                  <span className="h-px w-10 bg-teal-400/60" />
+                  <span className="text-xs font-medium tracking-[0.2em] uppercase text-teal-600">Our Network</span>
+                  <span className="h-px w-10 bg-teal-400/60" />
+                </div>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-900 flex items-center justify-center gap-4">
+                  <Handshake className="w-8 h-8 md:w-10 md:h-10 text-teal-600" />
+                  Key Organizational Partners
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {/* MKS Partner Card */}
+                <div className="group bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-200 hover:-translate-y-1 transition-all duration-500 flex items-center gap-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="w-24 h-24 flex-shrink-0 bg-slate-50 rounded-2xl p-4 flex items-center justify-center group-hover:bg-white group-hover:shadow-md transition-all duration-500 relative z-10">
+                    <img src={imgMentor} alt="MKS" className="w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-500" />
+                  </div>
+                  <div className="relative z-10">
+                    <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-teal-700 transition-colors duration-300">Mentor Knowledge Solutions</h4>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2.5 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-md group-hover:bg-teal-100 group-hover:text-teal-700 transition-colors duration-300">MKS</span>
+                    </div>
+                    <p className="text-sm text-slate-500 leading-relaxed font-light">
+                      Strategic partner driving our enterprise IT and data operations.
+                    </p>
+                  </div>
+                </div>
+
+                {/* BITS Partner Card */}
+   <div className="group bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.08)] hover:border-teal-200 hover:-translate-y-1 transition-all duration-500 flex items-center gap-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-50/0 via-transparent to-transparent group-hover:from-teal-50/40 transition-colors duration-500" />
+                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="w-24 h-24 flex-shrink-0 bg-slate-50 rounded-2xl p-4 flex items-center justify-center group-hover:bg-white group-hover:shadow-md transition-all duration-500 relative z-10">
+                    <img src={imgBits} alt="BITS" className="w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-500" />
+                  </div>
+                 <div className="relative z-10">
+                    <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-teal-700 transition-colors duration-300">BITS College</h4>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2.5 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-md group-hover:bg-teal-100 group-hover:text-teal-700 transition-colors duration-300">BITS</span>
+                    </div>
+                    <p className="text-sm text-slate-500 leading-relaxed font-light">
+                      Academic partner delivering specialized technical training programs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUpVariant} className="text-center mb-20 pt-16 border-t border-slate-100/80">
               <div className="flex items-center justify-center gap-4 mb-7">
                 <span className="h-px w-10 bg-teal-400/60" />
                 <span className="text-xs font-medium tracking-[0.2em] uppercase text-teal-600">Sector Partnerships</span>
@@ -97,7 +156,7 @@ export default function Projects() {
                   </div>
 
                   {/* CoMee */}
-                  <div className="bg-slate-50 rounded-2xl p-6 mb-6 border border-slate-100">
+                  <div className="bg-slate-50 rounded-2xl p-6 mb-6 border border-slate-100 hover:border-teal-200 transition-colors duration-300">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center">
                         <Globe className="w-5 h-5 text-teal-600" strokeWidth={1.5} />
@@ -134,7 +193,7 @@ export default function Projects() {
 
                   <div className="space-y-5">
                     {/* Training */}
-                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-indigo-200 transition-colors duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
                           <GraduationCap className="w-5 h-5 text-indigo-600" strokeWidth={1.5} />
@@ -147,7 +206,7 @@ export default function Projects() {
                     </div>
 
                     {/* Human Operations */}
-                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-violet-200 transition-colors duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center">
                           <Users className="w-5 h-5 text-violet-600" strokeWidth={1.5} />
@@ -162,6 +221,8 @@ export default function Projects() {
                 </div>
               </motion.div>
             </div>
+
+            {/* KEY PARTNERS SECTION - MOVED */}
           </motion.div>
         </div>
       </section>

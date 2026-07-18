@@ -119,6 +119,7 @@ export default function Projects() {
                   </div>
                  <div className="relative z-10">
                     <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-teal-700 transition-colors duration-300">BITS College</h4>
+                    
                     <div className="flex items-center gap-2 mb-3">
                       <span className="px-2.5 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-md group-hover:bg-teal-100 group-hover:text-teal-700 transition-colors duration-300">BITS</span>
                     </div>
@@ -155,7 +156,7 @@ export default function Projects() {
                     Partnering with MKS
                   </div>
 
-                  {/* CoMee */}
+                  {/* CoMee new */}
                   <div className="bg-slate-50 rounded-2xl p-6 mb-6 border border-slate-100 hover:border-teal-200 transition-colors duration-300">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center">
